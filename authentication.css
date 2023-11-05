@@ -1,0 +1,282 @@
+/* 
+---------------------
+Custom properties
+----------------------
+*/
+:root{
+    --clr-primary: #030712;
+    --clr-dark-900: #111827;
+    --clr-blue: #15083E;
+    --clr-secondary: #6CD3FF;
+    --clr-accent: #8C72FF;
+    --clr-white-body: #E2E1E4;
+    --clr-white-heading: #EBE6FA;
+    --clr-white-btn: #FBFAFF;
+
+    --ff-primary: "Oxygen", sans-serif;
+  --ff-secondary: "Oxygen Mono", monospace;
+
+    --fs-100: 1rem;
+  --fs-200: 1.25rem;
+  --fs-300: 2.25rem;
+  --fs-400: 3rem;
+  --fs-500: 4rem;
+
+  --fw-regular: 400;
+  --fw-bold: 700;
+
+  --padding-block-sm: 1rem;
+  --paddding-block-md: 1.5rem;
+
+  --padding-inline-sm: 1rem;
+  --padding-inline-md: 1.5rem;
+
+  --spacer: 1rem;
+}
+/* 
+---------------------
+Resets
+----------------------
+*/
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body, h1, h2, h3, h4, p,
+figure, blockquote, dl, dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  background-color: var(--clr-primary);
+  color: var(--clr-white-body);
+  font-family: var(--ff-primary);
+  font-size: var(--fs-100);
+}
+
+
+/* Set shorter line heights on headings and interactive elements */
+h1, h2, h3, h4,
+button, input, label {
+  line-height: 1.1;
+}
+/* Balance text wrapping on headings */
+h1, h2,
+h3, h4 {
+  text-wrap: balance;
+}
+
+ul{
+    margin: 0;
+    padding: 0;
+}
+
+li{
+    list-style-type: none;
+}
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input, button,
+textarea, select {
+  font: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+
+
+/* 
+---------------------
+styling
+----------------------
+*/
+main{
+  padding-top: 3rem;
+}
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  background-color: var(--clr-dark-900);
+  width: 90%;
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+button{
+  color: var(--clr-white-body);
+  font-family: var(--ff-secondary);
+}
+/* Change background color of buttons on hover */
+button:hover {
+  color: var(--clr-dark-900);
+  background-color: var(--clr-white-btn);
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: var(--clr-accent);
+  color: var(--clr-white-body);
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 2rem;
+  background-color: var(--clr-dark-900);
+  border-top: none;
+  width: 90%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* 
+---------------------
+Form
+----------------------
+*/
+form{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+}
+
+form label{
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+form input{
+  height: 2rem;
+}
+
+.btn{
+  border: none;
+   max-width: 10rem;
+    border-radius: 12px;
+    padding: .5rem;
+    background-color: var(--clr-accent);
+    color: var(--clr-white-btn);
+    transition: all .2s;
+  }
+  
+  .btn:hover, .btn:focus{
+  background-color: var(--clr-white-btn);
+  color: var(--clr-accent);
+  transform: scale(1.125);
+}
+
+.messageContainer{
+  background-color: var(--clr-accent);
+  color: var(--clr-white-body);
+  position: absolute;
+  top: 0;
+}
+
+.popup{
+  width: 400px;
+  background-color: var(--clr-dark-900);
+  border-radius: 12px;
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.1);
+  text-align: center;
+  padding: 0 30px 30px;
+  visibility: hidden;
+  transition: all 0.4s;
+}
+.open-popup{
+  top: 50%;
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(1);
+}
+.popup svg{
+  width: 50px;
+  margin: 2rem 0;
+  fill: var(--clr-white-body)
+}
+
+.popup h2{
+  margin-bottom: .5rem;
+}
+.popup button{
+  border: none;
+  padding: .25rem 1.5rem;
+  border-radius: 12px;
+  background-color: var(--clr-accent);
+  color: var(--clr-white-body);
+  margin-top: 2rem;
+  cursor: pointer;
+}
+
+@media(min-width: 768px) {
+  body{
+    font-size: 1.5rem;
+  }
+  .tab button{
+    font-size: 1.5rem;
+  }
+  .tabcontent{
+    font-size: 1.5rem;
+  }
+
+  input{
+    padding: 2rem 1rem;
+  }
+}

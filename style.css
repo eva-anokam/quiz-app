@@ -1,0 +1,547 @@
+/* 
+---------------------
+Custom properties
+----------------------
+*/
+:root{
+    --clr-primary: #030712;
+    --clr-dark-900: #111827;
+    --clr-blue: #15083E;
+    --clr-secondary: #6CD3FF;
+    --clr-accent: #8C72FF;
+    --clr-white-body: #E2E1E4;
+    --clr-white-heading: #EBE6FA;
+    --clr-white-btn: #FBFAFF;
+
+    --ff-primary: "Oxygen", sans-serif;
+  --ff-secondary: "Oxygen Mono", monospace;
+
+    --fs-100: 1rem;
+  --fs-200: 1.25rem;
+  --fs-300: 2.25rem;
+  --fs-400: 3rem;
+  --fs-500: 4rem;
+
+  --fw-regular: 400;
+  --fw-bold: 700;
+
+  --padding-block-sm: 1rem;
+  --paddding-block-md: 1.5rem;
+
+  --padding-inline-sm: 1rem;
+  --padding-inline-md: 1.5rem;
+
+  --spacer: 1rem;
+}
+/* 
+---------------------
+Resets
+----------------------
+*/
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body, h1, h2, h3, h4, p,
+figure, blockquote, dl, dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  background-color: var(--clr-primary);
+  color: var(--clr-white-body);
+  font-family: var(--ff-primary);
+  font-size: var(--fs-100);
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1, h2, h3, h4,
+button, input, label {
+  line-height: 1.1;
+}
+/* Balance text wrapping on headings */
+h1, h2,
+h3, h4 {
+  text-wrap: balance;
+}
+
+ul{
+    margin: 0;
+    padding: 0;
+}
+
+li{
+    list-style-type: none;
+}
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input, button,
+textarea, select {
+  font: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+ h2{
+    font-family: var(--ff-secondary);
+}
+
+section{
+    margin-bottom: 6rem;
+}
+
+/* 
+---------------------
+Utility classes
+----------------------
+*/
+
+.flow-content > * + * {
+  margin-top: var(--flow-space, var(--spacer));
+}
+
+.flow-content--lg {
+  --flow-space: 3rem;
+}
+.container {
+  padding: 0 var(--spacer);
+  max-width: 70rem;
+  margin: 0 auto;
+}
+.split--row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.split {
+  display: flex;
+  flex-direction: column;
+  /* gap: var(--spacer); */
+}
+
+.split > * + * {
+  margin: calc(var(--spacer) * 3) 0 0 0;
+}
+
+.btn{
+    border-radius: 12px;
+    padding: .5rem 1.5rem;
+    background-color: var(--clr-white-btn);
+    color: var(--clr-dark-900);
+    transition: all .2s;
+}
+
+.btn:hover, .btn:focus{
+  background-color: var(--clr-accent);
+  color: var(--clr-white-btn);
+  transform: scale(1.125);
+}
+
+.menu a:hover, menu a:focus{
+  text-decoration: underline;
+  color: var(--clr-accent);
+}
+
+/* 
+---------------------
+Header
+----------------------
+*/
+header{
+    padding-top: 2rem;
+}
+.header__container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    font-family: var(--ff-secondary);
+}
+
+.header__logo a{
+    max-width: 15rem;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+.header__logo img{
+    max-width: 30%;
+}
+
+.header__logo p{
+    font-size: .75rem;
+}
+
+.header__list{
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    gap: 3rem;
+    margin-bottom: 3rem;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.header__list a{
+    padding-block: 2rem;    
+    text-decoration: none;
+    font-size: var(--fs-200);
+}
+.header__btns{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 0 auto;
+}
+.header__btns a{
+    text-decoration: none;
+    
+    margin-bottom: 1rem;
+    display: block;   
+}
+.header__icons svg{
+    fill: var(--clr-white-btn);
+    stroke: var(--clr-white-btn);
+    width: 2rem;
+    
+}
+.header__mobile{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-image:linear-gradient(180deg, #030712, #15083E, #030712  );
+    padding: 2rem 0;
+    position: absolute;
+    height: calc(100vh - 85px);
+    width: 100vw;
+    top: 100%;
+    left: 0%;
+}
+.hide{
+    display: none;
+}
+
+/* 
+---------------------
+Hero
+----------------------
+*/
+.hero h1{
+    font-family: var(--ff-secondary);
+    margin-bottom: 1rem;
+    font-weight: var(--fw-bold);
+}
+.hero h1 span{
+    background-image: linear-gradient(to right,#6DC1DC, #A690FC, #FC96BB, #FFC397 );
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.hero p{
+    margin-bottom: 2rem;
+}
+
+.hero a{
+    text-decoration: none;
+}
+
+
+
+/* 
+---------------------
+Categories
+----------------------
+*/
+
+.categories__text{
+    --flow-space: .5rem
+}
+
+.categories__list{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    gap: 1rem;
+    grid-auto-flow: row;
+}
+
+.categories__list a{
+  text-decoration: none;
+}
+
+.categories__list li{
+    background-color: var(--clr-dark-900);
+    border-radius: 12px;
+    text-align: center;
+    padding: 1rem 1.5rem;
+    transition: all .2s;
+    cursor: pointer;
+}
+
+.categories__list li:hover, .categories__list li:focus{
+    background-color:var(--clr-accent);
+    transform: scale(1.125);
+}
+
+
+/* 
+---------------------
+Resources
+----------------------
+*/
+.resources__text{
+    --flow-space: .5rem;
+}
+
+.resources__list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    cursor: pointer;
+    position: relative;
+    padding: 1rem 0 1rem 10px;
+    transition: all .2s;
+}
+
+.resources__list svg {
+    width: 1.5rem;
+    
+}
+
+.resources__list a{
+    text-decoration: none;
+    padding-bottom: 1px;
+    border-bottom: 3px solid var(--clr-dark-900);
+}
+
+.resources__list li:before {
+    content: "";
+    position: absolute;
+    background: var(--clr-accent);
+    bottom: 0;
+    left: 0;
+    right: 100%; 
+    top: 0;
+    z-index: -1;
+    transition: width 0.3s ease-in; 
+    width: 0;
+}
+
+.resources__list li:hover:before {
+    width: 100%; /* Fill from the right */
+    border-radius: 12px;
+   
+}
+
+.resources__list  a:hover{
+  border-bottom: 3px solid var(--clr-white-body);
+}
+
+/* 
+---------------------
+Footer
+----------------------
+*/
+footer{
+  background-color: var(--clr-dark-900);
+  padding: 4rem;
+}
+.footer__social{
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+.footer__social svg{
+  width: 2rem;
+  height: auto;
+  transition: all .2s;
+}
+
+.footer__list{
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding-bottom: 2rem;
+  border-bottom: .5px solid var(--clr-white-body);
+}
+
+.footer__list a{
+  text-decoration: none;
+  padding: 1rem;
+}
+
+.footer__copyright{
+  text-align: center;
+  font-size: 1rem;
+}
+
+.footer__social svg:hover{
+  transform: scale(1.25);
+}
+
+@media (min-width: 768px) {
+    body{
+    font-size: 1.25rem;
+  }
+  .hero h1{
+    font-size: var(--fs-400);
+  }
+  .split {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .split > * {
+    flex-basis: 100%;
+  }
+  .split > * + * {
+    margin: 0 0 0 var(--spacer);
+  }
+    /* Header */
+  .header__container{
+    align-items: center;
+  }
+  .header__logo{
+    padding: 0;
+  }
+  .header__mobile{
+    background-image: none;
+    display: flex;
+    flex-direction: row;
+    position: static;
+    height: auto;
+    padding: 0;
+  }
+  .header__nav{
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 2rem;
+  }
+  .header__icons{
+    display: none;
+  }
+  .header__list{
+    flex-direction: row;
+    margin-bottom: 0;
+    padding: 0;
+    gap: 1.5rem;
+  }
+  .header__list a{
+    padding: 0;
+  }
+  .header__btns{
+    flex-direction: row;
+    flex: 1;
+    gap: 1rem;
+  }
+  .header__btns a{
+    margin-bottom: 0;
+  }
+
+  .resources, .categories{
+    margin-top: 10rem;
+  }
+
+  section{
+    margin-bottom: 3rem;
+  }
+
+  /* Categories list */
+  .categories__list{
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* resources list */
+  
+  .resources__container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 3rem;
+    justify-content: center;
+    align-content: center;
+  }
+  
+}
+
+@media (min-width: 1200px) {
+  body{
+    font-size: 1.5rem;
+  }
+  h1{
+    font-size: var(--fs-500);
+  }
+  h2{
+    font-size: var(--fs-300);
+  }
+  .header__logo a{
+    max-width: 25rem;
+    
+  }
+  .header__logo p{
+    font-size: 1rem;
+  }
+  .header__list {
+    gap: 3rem;
+  }
+  .header__list a{
+    font-size: 1.5rem;
+  }
+  .resources__list{
+    display: flex;
+    justify-content: center;
+  }
+  .resources__container{
+    grid-template-columns: repeat(3, 1fr);
+    font-size: 1.25rem;
+    row-gap: 2rem;
+  }
+  
+  .resources__text, .categories__text{
+    text-align: center;
+  }
+}

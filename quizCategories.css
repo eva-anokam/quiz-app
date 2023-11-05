@@ -1,0 +1,274 @@
+/* 
+---------------------
+Custom properties
+----------------------
+*/
+:root{
+    --clr-primary: #030712;
+    --clr-dark-900: #111827;
+    --clr-blue: #15083E;
+    --clr-secondary: #6CD3FF;
+    --clr-accent: #8C72FF;
+    --clr-white-body: #E2E1E4;
+    --clr-white-heading: #EBE6FA;
+    --clr-white-btn: #FBFAFF;
+
+    --ff-primary: "Oxygen", sans-serif;
+  --ff-secondary: "Oxygen Mono", monospace;
+
+    --fs-100: 1rem;
+  --fs-200: 1.25rem;
+  --fs-300: 2.25rem;
+  --fs-400: 3rem;
+  --fs-500: 4rem;
+
+  --spacer: 1rem;
+}
+/* 
+---------------------
+Resets
+----------------------
+*/
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body, h1, h2, h3, h4, p,
+figure, blockquote, dl, dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  background-color: var(--clr-primary);
+  color: var(--clr-white-body);
+  font-family: var(--ff-primary);
+  font-size: var(--fs-200);
+}
+
+
+/* Set shorter line heights on headings and interactive elements */
+h1, h2, h3, h4,
+button, input, label {
+  line-height: 1.1;
+}
+/* Balance text wrapping on headings */
+h1, h2,
+h3, h4 {
+  text-wrap: balance;
+}
+
+ul{
+    margin: 0;
+    padding: 0;
+}
+
+li{
+    list-style-type: none;
+}
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input, button,
+textarea, select {
+  font: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+h1{
+    font-family: var(--ff-secondary);
+    font-size: var(--fs-400);
+    margin-bottom: 2rem;
+}
+h2{
+    font-size: var(--fs-300);
+}
+
+/* 
+---------------------
+Utility classes
+----------------------
+*/
+
+.container {
+  padding: 0 var(--spacer);
+  max-width: 70rem;
+  margin: 0 auto;
+}
+.flow-content > * + * {
+  margin-top: var(--flow-space, var(--spacer));
+}
+
+.flow-content--lg {
+  --flow-space: 3rem;
+}
+.btn{
+    border: none;
+    border-radius: 12px;
+    padding: .5rem 1.5rem;
+    background-color: var(--clr-white-btn);
+    color: var(--clr-dark-900);
+    transition: all .2s;
+    cursor: pointer;
+}
+
+.btn:hover{
+  background-color: var(--clr-accent);
+  color: var(--clr-white-btn);
+  transform: scale(1.125);
+}
+
+/* 
+---------------------
+Header
+----------------------
+*/
+.header{
+    background-color: var(--clr-dark-900);
+}
+.header__inner{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 1rem;
+}
+.header__container{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2rem;    
+}
+.header a{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    text-decoration: none;
+    transition: all .2s;
+    cursor: pointer;
+}
+
+
+.header a:hover, .header a:focus{
+ color: var(--clr-accent);
+  transform: scale(1.125);
+}
+.header a svg{
+    width: 2rem;
+    fill: var(--clr-accent);
+}
+.header__logo a{
+    display: flex;
+    align-items: center;
+    text-decoration: none; 
+    max-width: 5rem;   
+}
+.header__logo img{
+    max-width: 5rem;
+}
+
+.main--categories{
+  padding-block: 2rem;
+}
+
+.categories__container, .quizzes__container{
+    text-align: center;
+}
+.categories__container  > * + * , .quizzes__container > * + *{
+  margin-top: var(--flow-space, var(--spacer));
+}
+
+
+.categories__list, .quizzes__list{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-rows: auto;
+    gap: 1rem;
+    grid-auto-flow: row;
+    --flow-space: 3rem;
+}
+.quizzes__list{
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.categories__list li, .quiz__item{
+    background-color: var(--clr-dark-900);
+    border-radius: 12px;
+    text-align: center;
+    padding: 1rem 1.5rem;
+    transition: all .2s;
+    cursor: pointer;
+}
+
+.categories__list li:hover, .categories__list li:focus, .quiz__item:hover, .quiz__item:focus{
+    background-color:var(--clr-accent);
+}
+
+.categories__list li:hover, .categories__list li:focus{
+  transform: scale(1.125);
+}
+
+.quiz__title{
+  margin-bottom: .5rem;
+  font-size: var(--fs-200);
+}
+
+.quiz__description{
+  margin: 0 auto;
+  max-width: 35ch;
+}
+
+@media (min-width: 768px) {
+  body{
+    font-size: var(--fs-200);
+  }
+  .categories__list, .quizzes__list {
+    gap: 2rem 3rem;
+  }
+  
+}
+
+@media(min-width: 1200px) {
+  .quiz__title{
+    font-size: 1.5rem;
+  }
+ 
+}

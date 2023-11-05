@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oxygen+Mono&family=Oxygen:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="authentication.css" />
+    <title>Register</title>
+  </head>
+  <body>
+    <main class="">
+      <div class="tab">
+        <button class="tablinks" onclick="openTab(event, 'Register')">
+          Register
+        </button>
+        <button class="tablinks" onclick="openTab(event, 'Login')">
+          Login
+        </button>
+      </div>
+
+      <div id="Register" class="tabcontent">
+        <form action="" class="form">
+          <label>
+            First name
+            <input
+              type="text"
+              placeholder="First name"
+              id="firstname"
+              name="firstname"
+              autocomplete="off"
+              required
+            />
+          </label>
+          <label>
+            Last name
+            <input
+              type="text"
+              placeholder="Last name"
+              id="lastname"
+              name="lastname"
+              autocomplete="off"
+              required
+            />
+          </label>
+          <label>
+            Username
+            <input
+              type="text"
+              name="username"
+              id="username"
+              placeholder="Username"
+              autocomplete="off"
+              required
+            />
+          </label>
+          <label>
+            Email
+            <input
+              type="email"
+              placeholder="Email"
+              id="email"
+              name="email"
+              autocomplete="off"
+              required
+            />
+          </label>
+          <label>
+            Enter password
+            <input
+              type="password"
+              name="password"
+              placeholder="New Password"
+              id="password"
+              required
+            />
+          </label>
+
+          <button class="register__btn btn">Register</button>
+        </form>
+      </div>
+
+      <div id="Login" class="tabcontent">
+        <form action="" class="login__form">
+          <label for=""
+            >Username
+            <input
+              type="text"
+              name="username"
+              id="login__username"
+              placeholder="Username"
+              required
+            />
+          </label>
+          <label for="">
+            Password
+            <input
+              type="password"
+              name="password"
+              id="login__password"
+              placeholder="Password"
+              required
+            />
+          </label>
+          <button class="login btn">Login</button>
+        </form>
+      </div>
+
+      <div class="popup">
+        <svg viewBox="0 0 24 24" fill="" xmlns="http://www.w3.org/2000/svg">
+          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+          <g
+            id="SVGRepo_tracerCarrier"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></g>
+          <g id="SVGRepo_iconCarrier">
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M2 4.5C2 3.11929 3.11929 2 4.5 2H19.5C20.8807 2 22 3.11929 22 4.5V19.5C22 20.8807 20.8807 22 19.5 22H4.5C3.11929 22 2 20.8807 2 19.5V4.5ZM18.787 9.57537C19.1767 9.18401 19.1753 8.55084 18.784 8.16116L18.0753 7.45558C17.684 7.0659 17.0508 7.06726 16.6611 7.45863L10.8895 13.2551L7.56845 9.98027C7.1752 9.59249 6.54205 9.59692 6.15427 9.99018L5.45213 10.7022C5.06436 11.0955 5.06879 11.7286 5.46204 12.1164L10.2003 16.7888C10.5922 17.1752 11.2228 17.1723 11.6111 16.7823L18.787 9.57537Z"
+              fill=""
+            ></path>
+          </g>
+        </svg>
+        <h2>Registration complete</h2>
+        <p>Thank you for registering! You can now log in to your account</p>
+        <button type="button" class="close__btn">Ok</button>
+      </div>
+    </main>
+
+    <script>
+      function openTab(evt, tabName) {
+        var i, tabcontent, tablinks;
+
+        // First, hide all tabs
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+
+        // Remove the "active" class from all tab links
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+
+        // Then, display the specified tab and mark it as active
+        var selectedTab = document.getElementById(tabName);
+        selectedTab.style.display = "block";
+        evt.currentTarget.className += " active";
+      }
+
+      // Open the default tab when the page loads
+      window.onload = function () {
+        document.querySelector(".tablinks").click(); // Click the first tab link
+      };
+    </script>
+
+    <script src="popup.js" type="module"></script>
+    <script src="authentication.js" type="module"></script>
+  </body>
+</html>
